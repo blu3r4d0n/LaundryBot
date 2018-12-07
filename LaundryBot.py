@@ -4,6 +4,12 @@ import tweepy
 
 
 
+from secrets import *
+
+auth = tweepy.OAuthHandler(C_KEY, C_SECRET)  
+auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)  
+api = tweepy.API(auth)
+
 
 def getData(room):
     data=requests.get(room)
@@ -24,7 +30,8 @@ def getDryers(laundryroomData):
                 availDry=availDry+1
             
     return availDry
-def Phelps():
+def listMaker():
+    listData=[]
     laundryRooms = {
         "Phelps 1st Floor":'http://api.laundryview.com/room/?api_key=8c31a4878805ea4fe690e48fddbfffe1&method=getAppliances&location=1946215', ############################
         "Phelps 2nd Floor": 'http://api.laundryview.com/room/?api_key=8c31a4878805ea4fe690e48fddbfffe1&method=getAppliances&location=1946216',############################
@@ -37,9 +44,14 @@ def Phelps():
         "Thomson West": 'http://api.laundryview.com/room/?api_key=8c31a4878805ea4fe690e48fddbfffe1&method=getAppliances&location=194628',     ############################
         "Wofford":'http://api.laundryview.com/room/?api_key=8c31a4878805ea4fe690e48fddbfffe1&method=getAppliances&location=1946210',          ############################
         }
+    print("This will take just a second")
     for key, value in laundryRooms.items():
-        #altText="Currently, there are " + str(getWashers(getData(value))) + " washers and "+ str(getDryers(getData(value))) + " dryers available in the "+ key +" laundry room."
-        tweet= key +": "+ str(getWashers(getData(value))) +  " W / " + str(getDryers(getData(value))) + " D"
-        print(tweet)
+        #altText="Currently, there are " + str(getWashers(getData(value))) + " washers and "+ str(getDryers(getData(value))) + " dryers available in the "+ key +" laundry room."      
+        listData.append (key +": "+ str(getWashers(getData(value))) +  " W / " + str(getDryers(getData(value))) + " D")
+    return listData
         #tweet(tweet)
-Phelps()
+CurrentData=listMaker()
+tweet = list()
+for item in CurrentData:
+    api.update_status(item)
+    #tweet.append(item)
