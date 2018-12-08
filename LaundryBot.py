@@ -49,6 +49,5 @@ def listMaker():
         #altText="Currently, there are " + str(getWashers(getData(value))) + " washers and "+ str(getDryers(getData(value))) + " dryers available in the "+ key +" laundry room."      
         listData.append (key +": "+ str(getWashers(getData(value))) +  " W / " + str(getDryers(getData(value))) + " D")
     return listData
-        #tweet(tweet)
-tweet="\n".join(CurrentData)
-api.update_status(tweet)
+tweet="\n".join(listMaker())
+#api.update_status(tweet)
