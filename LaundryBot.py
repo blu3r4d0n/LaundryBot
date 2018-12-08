@@ -50,8 +50,5 @@ def listMaker():
         listData.append (key +": "+ str(getWashers(getData(value))) +  " W / " + str(getDryers(getData(value))) + " D")
     return listData
         #tweet(tweet)
-CurrentData=listMaker()
-tweet = list()
-for item in CurrentData:
-    api.update_status(item)
-    #tweet.append(item)
+tweet="\n".join(CurrentData)
+api.update_status(tweet)
