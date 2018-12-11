@@ -55,9 +55,10 @@ try:
     api.update_status(tweet)
 except tweepy.TweepError as error:
     if error.api_code == 187:
-        print('There are the same number of machines in every room as the last update.')
+        api.update_status('There are the same number of machines in every room as the last update.')
     else:
         raise error
+    
 
     
     
