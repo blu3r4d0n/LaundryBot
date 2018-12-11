@@ -33,6 +33,7 @@ def getDryers(laundryroomData):
 def listMaker():
     listData=[]
     laundryRooms = {
+        "Margaret Nance": 'http://api.laundryview.com/room/?api_key=8c31a4878805ea4fe690e48fddbfffe1&method=getAppliances&location=194624'
         "Phelps 1st Floor":'http://api.laundryview.com/room/?api_key=8c31a4878805ea4fe690e48fddbfffe1&method=getAppliances&location=1946215', ############################
         "Phelps 2nd Floor": 'http://api.laundryview.com/room/?api_key=8c31a4878805ea4fe690e48fddbfffe1&method=getAppliances&location=1946216',############################
         "Phelps Basement": 'http://api.laundryview.com/room/?api_key=8c31a4878805ea4fe690e48fddbfffe1&method=getAppliances&location=194625',  ############################
