@@ -51,5 +51,13 @@ def listMaker():
     listData.sort(key = lambda x: x.split()[0]) #this sorts listData alphabetically for my sanity
     return listData
 tweet="\n".join(listMaker())
-api.update_status(tweet)
+try:
+    api.update_status(tweet)
+except tweepy.TweepError as error:
+    if error.api_code == 187:
+        print('There are the same number of machines in every room as the last update.')
+    else:
+        raise error
 
+    
+    
