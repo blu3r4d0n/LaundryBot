@@ -47,7 +47,9 @@ def listMaker():
         }
     for key, value in laundryRooms.items():
         #altText="Currently, there are " + str(getWashers(getData(value))) + " washers and "+ str(getDryers(getData(value))) + " dryers available in the "+ key +" laundry room."      
-        listData.append (key +": "+ str(getWashers(getData(value))) +  " W / " + str(getDryers(getData(value))) + " D")
+        listData.append (key +": "+ str(getWashers(getData(value))) +  " W / " + str(getDryers(getData(value))) + " D")    
+    listData.sort(key = lambda x: x.split()[0]) #this sorts listData alphabetically for my sanity
     return listData
 tweet="\n".join(listMaker())
 api.update_status(tweet)
+
