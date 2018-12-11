@@ -1,8 +1,7 @@
 # LaundryBot
 A bot that tweets laundry information for Winthrop University using the LaundryView 
 API. It's basically irrelevant because there is a website that has all of this 
-information. I just wanted to do a project and this is it. I'm still waiting on twitter 
-to get back to me about API access (could take more than a week, so no tweets yet).
+information. I just wanted to do a project and this is it. I keep finding little things that I can fix so this is definitely a WIP :)
 
 ## Requires
 * [requests](https://github.com/requests/requests)
